@@ -9,6 +9,7 @@ import {
   NavItem,
   ButtonLoginIcon,
   ButtonLogoutIcon,
+  Credits,
 } from "./Navbar.elements";
 import { LoginButton, LinkTag } from "../../GlobalStyles";
 import Payments from "../payments/Payments";
@@ -34,6 +35,7 @@ const Navbar = ({ auth }) => {
             <NavItem to="/">Home</NavItem>
             <NavItem to="/surveys">Dashboard</NavItem>
             <Payments />
+            <Credits>Credits:{auth.credits}</Credits>
             <LoginButton to="/logout">
               <ButtonLogoutIcon /> Sign out
             </LoginButton>

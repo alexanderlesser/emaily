@@ -69,3 +69,10 @@ export const Button = styled.button`
   border-radius: 4px;
   padding: 10px 30px;
 `;
+
+export const Credits = styled.div`
+  padding: 10px 30px;
+  background-color: blue;
+  margin: 0 10px;
+  color: #fff;
+`;
