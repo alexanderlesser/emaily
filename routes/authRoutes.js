@@ -13,7 +13,18 @@ module.exports = (app) => {
 
   // google auth callback
   // passport takes request and resolve it to a profile
-  app.get("/auth/google/callback", passport.authenticate("google"));
+  // app.get("/auth/google/callback", passport.authenticate("google")),
+  //   (req, res) => {
+
+  //   };
+
+  app.get(
+    "/auth/google/callback",
+    passport.authenticate("google"),
+    (req, res) => {
+      res.redirect("/surveys");
+    }
+  );
 
   //starting auth with facebook
   app.get(
@@ -24,13 +35,19 @@ module.exports = (app) => {
   );
 
   //facebook auth callback
-  app.get("/auth/facebook/callback", passport.authenticate("facebook"));
+  app.get(
+    "/auth/facebook/callback",
+    passport.authenticate("facebook"),
+    (req, res) => {
+      res.redirect("/surveys");
+    }
+  );
 
   // user logout
   app.get("/api/logout", (req, res) => {
     req.logout();
     // takes cookie and kills the id
-    res.send(req.user);
+    res.redirect("/");
   });
 
   // user login

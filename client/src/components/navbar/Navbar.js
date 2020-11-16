@@ -33,7 +33,7 @@ const Navbar = ({ auth }) => {
           <React.Fragment>
             <NavItem to="/">Home</NavItem>
             <NavItem to="/">About</NavItem>
-            <NavItem to="/">Dashboard</NavItem>
+            <NavItem to="/surveys">Dashboard</NavItem>
             <LoginButton to="/logout">
               <ButtonLogoutIcon /> Sign out
             </LoginButton>
