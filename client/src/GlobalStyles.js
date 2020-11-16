@@ -7,6 +7,11 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
     padding: 0;
 }
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 12px;
+}
 `;
 
 export const Container = styled.div`

@@ -11,6 +11,7 @@ import {
   ButtonLogoutIcon,
 } from "./Navbar.elements";
 import { LoginButton, LinkTag } from "../../GlobalStyles";
+import Payments from "../payments/Payments";
 
 const Navbar = ({ auth }) => {
   const renderContent = () => {
@@ -21,7 +22,6 @@ const Navbar = ({ auth }) => {
         return (
           <React.Fragment>
             <NavItem to="/">Home</NavItem>
-            <NavItem to="/">About</NavItem>
             <LoginButton to="/login">
               <ButtonLoginIcon /> Sign In
             </LoginButton>
@@ -32,8 +32,8 @@ const Navbar = ({ auth }) => {
         return (
           <React.Fragment>
             <NavItem to="/">Home</NavItem>
-            <NavItem to="/">About</NavItem>
             <NavItem to="/surveys">Dashboard</NavItem>
+            <Payments />
             <LoginButton to="/logout">
               <ButtonLogoutIcon /> Sign out
             </LoginButton>
@@ -46,7 +46,7 @@ const Navbar = ({ auth }) => {
     <Nav>
       <NavContainer>
         <LogoBox>
-          <LinkTag to="/">
+          <LinkTag to={auth ? "/surveys" : "/"}>
             <h2>EmailY</h2>
           </LinkTag>
         </LogoBox>

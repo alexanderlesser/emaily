@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cookieSession = require("cookie-session");
 const passport = require("passport");
+const bodyParser = require("body-parser");
 
 const keys = require("./config/keys");
 require("./models/User");
@@ -11,6 +12,9 @@ mongoose.connect(keys.mongoURI);
 const app = express();
 // calling express as a function generates
 // a new application that represents a running express app.
+
+// body parser middlewear
+app.use(bodyParser.json());
 
 // cookiesession init
 app.use(
@@ -30,6 +34,7 @@ app.use(passport.session());
 
 // calling authRoute
 require("./routes/authRoutes")(app);
+require("./routes/billingRoutes")(app);
 
 const PORT = process.env.PORT || 5000;
 // environment variables ||

@@ -53,11 +53,13 @@ export const NavItem = styled(Link)`
 export const ButtonLoginIcon = styled(RiLoginCircleLine)`
   color: #fff;
   margin-right: 10px;
+  font-size: 1.5rem;
 `;
 
 export const ButtonLogoutIcon = styled(RiLogoutCircleLine)`
   color: #fff;
   margin-right: 10px;
+  font-size: 1.5rem;
 `;
 
 export const Button = styled.button`
