@@ -1,21 +1,34 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Router, Route, Switch } from "react-router-dom";
+import { connect } from "react-redux";
 import GlobalStyles from "../GlobalStyles";
 import Navbar from "./navbar/Navbar";
 import Home from "./pages/home/Home";
+import Dashboard from "./pages/dashboard/Dashboard";
+import Login from "./pages/login/Login";
+import history from "../history";
+import { fetchUser } from "../actions";
+import Logout from "./pages/logout/Logout";
 
-function App() {
+function App({ fetchUser }) {
+  useEffect(() => {
+    fetchUser();
+  }, [fetchUser]);
   return (
     <>
       <GlobalStyles />
-      <Router>
+      <Router history={history}>
         <Navbar />
         <Switch>
-          <Route path="/" exact component={Home} />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/surveys" component={Dashboard} />
+          <Route exact path="/surveys/new" component={Dashboard} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/logout" component={Logout} />
         </Switch>
       </Router>
     </>
   );
 }
 
-export default App;
+export default connect(null, { fetchUser })(App);

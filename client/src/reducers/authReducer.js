@@ -1,5 +1,14 @@
-const authreducer = (state = {}, action) => {
+import { FETCH_USER } from "../actions/types";
+
+// const INITIAL_STATE = {
+//   isSignedIn: null,
+//   userId: null,
+// };
+
+const authreducer = (state = null, action) => {
   switch (action.type) {
+    case FETCH_USER:
+      return action.payload || false;
     default:
       return state;
   }

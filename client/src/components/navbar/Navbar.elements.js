@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { RiLoginCircleLine, RiLogoutCircleLine } from "react-icons/ri";
 
 export const Nav = styled.div`
   position: sticky;
@@ -28,7 +29,7 @@ export const LogoBox = styled.div`
 
 export const NavMenuBox = styled.div`
   height: 100%;
-  width: 60%;
+  width: 70%;
   display: flex;
   justify-content: flex-end;
 `;
@@ -47,4 +48,22 @@ export const NavItem = styled(Link)`
   color: #000;
   position: relative;
   padding: 10px 20px;
+`;
+
+export const ButtonLoginIcon = styled(RiLoginCircleLine)`
+  color: #fff;
+  margin-right: 10px;
+`;
+
+export const ButtonLogoutIcon = styled(RiLogoutCircleLine)`
+  color: #fff;
+  margin-right: 10px;
+`;
+
+export const Button = styled.button`
+  outline: none;
+  background-color: #000;
+  color: #fff;
+  border-radius: 4px;
+  padding: 10px 30px;
 `;
