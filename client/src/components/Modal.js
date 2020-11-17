@@ -5,23 +5,31 @@ import { FaTimes } from "react-icons/fa";
 
 const ModalBackground = styled.div`
   position: fixed;
-  background-color: #6a6e6b;
-  height: 100%;
+  /* background-color: #6a6e6b; */
+  background-color: #000;
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  height: 100vh;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 0;
+  z-index: 1;
 `;
 
 const ContentBox = styled.div`
   position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background-color: #fff;
   /* width: 50%;
   height: 50%; */
   padding: 0 50px;
   padding-bottom: ${({ login }) => (login ? "30px" : "")};
   padding-top: 50px;
+  opacity: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -73,14 +81,15 @@ const ActionsBox = styled.div`
 
 const Modal = ({ onDismiss, actions, description, title, login }) => {
   return ReactDOM.createPortal(
-    <ModalBackground onClick={onDismiss}>
+    <React.Fragment>
+      <ModalBackground onClick={onDismiss}></ModalBackground>
       <ContentBox login={login} onClick={(event) => event.stopPropagation()}>
         <CloseIcon onClick={onDismiss} />
         <Headertext>{title}</Headertext>
         <Message>{description}</Message>
         <ActionsBox login={login}>{actions}</ActionsBox>
       </ContentBox>
-    </ModalBackground>,
+    </React.Fragment>,
     document.querySelector("#modal")
   );
 };

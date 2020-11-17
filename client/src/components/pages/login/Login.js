@@ -17,6 +17,11 @@ const GoogleButton = styled.a`
   padding-left: 20px;
   background-color: #de5246;
   color: #fff;
+
+  &:hover {
+    background: #d62020;
+    color: #fff;
+  }
 `;
 
 const FacebookButton = styled.a`
@@ -32,6 +37,11 @@ const FacebookButton = styled.a`
   padding-left: 10px;
   background-color: #3b5998;
   color: #fff;
+
+  &:hover {
+    background-color: #005dd6;
+    color: #fff;
+  }
 `;
 
 const IconBox = styled.div`

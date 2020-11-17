@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { SiMinutemailer } from "react-icons/si";
 import {
   Nav,
   NavContainer,
@@ -7,18 +8,23 @@ import {
   NavMenuBox,
   NavMenu,
   NavItem,
+  Credits,
+  Logo,
+} from "./Navbar.elements";
+import {
+  LoginButton,
+  LinkTag,
+  LogoutButton,
   ButtonLoginIcon,
   ButtonLogoutIcon,
-  Credits,
-} from "./Navbar.elements";
-import { LoginButton, LinkTag } from "../../GlobalStyles";
+} from "../../GlobalStyles";
 import Payments from "../payments/Payments";
 
 const Navbar = ({ auth }) => {
   const renderContent = () => {
     switch (auth) {
       case null:
-        return null;
+        return;
       case false:
         return (
           <React.Fragment>
@@ -34,11 +40,10 @@ const Navbar = ({ auth }) => {
           <React.Fragment>
             <NavItem to="/">Home</NavItem>
             <NavItem to="/surveys">Dashboard</NavItem>
-            <Payments />
             <Credits>Credits:{auth.credits}</Credits>
-            <LoginButton to="/logout">
+            <LogoutButton href="/api/logout">
               <ButtonLogoutIcon /> Sign out
-            </LoginButton>
+            </LogoutButton>
           </React.Fragment>
         );
     }
@@ -49,7 +54,10 @@ const Navbar = ({ auth }) => {
       <NavContainer>
         <LogoBox>
           <LinkTag to={auth ? "/surveys" : "/"}>
-            <h2>EmailY</h2>
+            <Logo>
+              <SiMinutemailer />
+              EmailY
+            </Logo>
           </LinkTag>
         </LogoBox>
         <NavMenuBox>

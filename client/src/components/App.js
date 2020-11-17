@@ -8,7 +8,6 @@ import Dashboard from "./pages/dashboard/Dashboard";
 import Login from "./pages/login/Login";
 import history from "../history";
 import { fetchUser } from "../actions";
-import Logout from "./pages/logout/Logout";
 
 function App({ fetchUser }) {
   useEffect(() => {
@@ -24,7 +23,6 @@ function App({ fetchUser }) {
           <Route exact path="/surveys" component={Dashboard} />
           <Route exact path="/surveys/new" component={Dashboard} />
           <Route exact path="/login" component={Login} />
-          <Route exact path="/logout" component={Logout} />
         </Switch>
       </Router>
     </>

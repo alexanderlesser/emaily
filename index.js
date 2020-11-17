@@ -6,9 +6,10 @@ const bodyParser = require("body-parser");
 
 const keys = require("./config/keys");
 require("./models/User");
+require("./models/Survey");
 require("./services/passport");
 
-mongoose.connect(keys.mongoURI);
+mongoose.connect(keys.mongoURI, { useNewUrlParser: true });
 const app = express();
 // calling express as a function generates
 // a new application that represents a running express app.
@@ -35,6 +36,7 @@ app.use(passport.session());
 // calling authRoute
 require("./routes/authRoutes")(app);
 require("./routes/billingRoutes")(app);
+require("./routes/surveyRoutes")(app);
 
 const PORT = process.env.PORT || 5000;
 // environment variables ||

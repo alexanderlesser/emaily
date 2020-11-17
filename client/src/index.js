@@ -8,6 +8,10 @@ import App from "./components/App";
 import reportWebVitals from "./reportWebVitals";
 import reducers from "./reducers";
 
+import axios from "axios";
+window.axios = axios;
+console.log("index file");
+
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
   reducers,

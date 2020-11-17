@@ -14,15 +14,25 @@ export const Nav = styled.div`
 export const NavContainer = styled.div`
   width: 100%;
   height: 100%;
-  padding: 0 30px;
+  /* padding: 0 30px; */
+  /* padding-left: 80px; */
+  padding-right: 30px;
   display: flex;
   justify-content: space-between;
 `;
 
 export const LogoBox = styled.div`
   height: 100%;
-  width: 50px;
+  width: 200px;
   display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const Logo = styled.h1`
+  display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
 `;
@@ -48,6 +58,10 @@ export const NavItem = styled(Link)`
   color: #000;
   position: relative;
   padding: 10px 20px;
+
+  &:hover {
+    color: #fff;
+  }
 `;
 
 export const ButtonLoginIcon = styled(RiLoginCircleLine)`
@@ -72,7 +86,7 @@ export const Button = styled.button`
 
 export const Credits = styled.div`
   padding: 10px 30px;
-  background-color: blue;
+  background-color: aliceblue;
   margin: 0 10px;
-  color: #fff;
+  color: #000;
 `;
